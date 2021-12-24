@@ -50,6 +50,51 @@ td {
   width: 140px;
 }
 
+button{
+  background: #545050;
+  color: white;
+  border: 0;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 14px;
+  cursor: pointer;
+}
+
+#form{
+  width: 375px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 20px auto;
+  background: #bf6345;
+  padding: 30px;
+}
+form{
+  text-align: left;
+}
+label{
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: white;
+  font-weight: 800;
+  display: block;
+}
+input{
+  border: 0;
+  width: 200px;
+  background: white;
+  color: black;
+  font-size: 20px;
+  padding: 5px 10px;
+  margin: 0 5px;
+  box-shadow: 1px 1px 1px 1px #eee;
+}
+.form-submit{
+  margin: 0;
+  padding: 12px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

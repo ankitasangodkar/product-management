@@ -6,6 +6,7 @@ class Form extends React.Component {
             <div id="form">
                 <h4> Add a new record </h4>
                 <form onSubmit={this.props.handleFormSubmit}>
+
                     <label htmlFor="username">Username:
                         <input id="username" value={this.props.newUsername} 
                             type="text" name="username"

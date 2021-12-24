@@ -58,6 +58,7 @@ class App extends React.Component {
               newDpNumber={this.state.dpNumber}
               newUsername={this.state.username}
               newPhoneNumber={this.state.phoneNumber}
+              newCount={this.state.count}
         />
       </div>
     );

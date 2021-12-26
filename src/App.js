@@ -12,7 +12,7 @@ class App extends React.Component {
       dpNumber: '',
       username: '',
       phoneNumber: '',
-      count: 0,
+      count: 1,
       items: []
     }
   };
@@ -24,7 +24,8 @@ class App extends React.Component {
     items.push({
       dpNumber: this.state.dpNumber,
       username: this.state.username,
-      phoneNumber: this.state.phoneNumber
+      phoneNumber: this.state.phoneNumber,
+      count: this.state.count
     });
 
     this.setState({
@@ -58,7 +59,6 @@ class App extends React.Component {
               newDpNumber={this.state.dpNumber}
               newUsername={this.state.username}
               newPhoneNumber={this.state.phoneNumber}
-              newCount={this.state.count}
         />
       </div>
     );

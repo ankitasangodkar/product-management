@@ -33,7 +33,7 @@ class MemeberList extends React.Component {
                             return (
                                 <Members 
                                     key={key}
-                                    dpNumber = {data.dpNumber}
+                                    dpNumber = {1010 + data.count}
                                     username = {data.username}
                                     phoneNumber = {data.phoneNumber}
                                 />

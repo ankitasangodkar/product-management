@@ -70,6 +70,9 @@ button{
   background: #bf6345;
   padding: 30px;
 }
+#form h4{
+  margin-top: 0;
+}
 form{
   text-align: left;
 }
@@ -90,9 +93,18 @@ input{
   margin: 0 5px;
   box-shadow: 1px 1px 1px 1px #eee;
 }
+.search{
+  width: 300px;
+  height: 25px;
+  background: #efefef;
+  box-shadow: none;
+  border: 1px solid #a2a2a2;
+  font-size: 16px;
+}
 .form-submit{
   margin: 0;
   padding: 12px;
+  font-size: 15px;
 }
 
 @keyframes App-logo-spin {

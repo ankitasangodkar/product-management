@@ -8,6 +8,7 @@ class MemeberList extends React.Component {
     render() {
     
         const items = memberData && this.props.items;
+        let { filterNames } = this.props;
         return (
             <div className="memberList">
                 <table>
@@ -19,7 +20,7 @@ class MemeberList extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {memberData.map((data, key) => {
+                        {memberData.filter(filterNames).map((data, key) => {
                             return (
                                 <Members 
                                     key={key}
@@ -29,7 +30,7 @@ class MemeberList extends React.Component {
                                 />
                             );
                         })}
-                        {items.map((data, key) => {
+                        {items.filter(filterNames).map((data, key) => {
                             return (
                                 <Members 
                                     key={key}

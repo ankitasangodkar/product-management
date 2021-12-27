@@ -1,11 +1,16 @@
 import React from "react";
 
-function SearchBar(props){
-    return (
-        <input type="text" placeholder="Filter by Search" className="search"
-        onChange={(e) => props.onSearch(e.target.value)} value={props.value}
-        />
-    );
+class SearchBar extends React.Component{
+    constructor(props){
+        super(props)
+    }
+    render() {
+        return (
+            <input type="text" placeholder="Filter by Search" className="search"
+                onChange = {(e) => this.props.update(e)}
+            />
+        );
+    }
 }
 
 export default SearchBar;

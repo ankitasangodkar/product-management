@@ -13,7 +13,7 @@ class App extends React.Component {
       dpNumber: '',
       username: '',
       phoneNumber: '',
-      searchValue: '',
+      search: '',
       count: 1,
       items: []
     }
@@ -49,19 +49,29 @@ class App extends React.Component {
     })
   };
 
-  filterNames = ({ username }) => {
-    return username.toLowerCase().indexOf(this.state.searchValue.toLowerCase()) !== -1;
+  handleChange(event) {
+    // Get event value
+    let searchValue = event.target.value;
+    console.log(searchValue);
+
+    // Set the state to trigger a re-rendering
+    this.setState({ search: searchValue });
   }
 
   render() {
-    const {searchValue, setSearchValue} = this.state;
+    let employees = this.props.data,
+    searchString = this.state.search.trim().toLowerCase();
+
+    const filterNames = ({ username }) => {
+      return username.toLowerCase().indexOf(searchString.toLowerCase()) !== -1;
+    };
     return (
       <div className="App">
         <header>
           <h2> Memebers List </h2>
-          <SearchBar onSearch={setSearchValue} value={searchValue} />
+          <SearchBar update={(e) => this.handleChange(e)} />
         </header>
-        <MemberList items={this.state.items } />
+        <MemberList items={this.state.items } filterNames={filterNames} />
         <Form handleFormSubmit={this.handleFormSubmit}
               handleInputChange={this.handleInputChange}
               newDpNumber={this.state.dpNumber}

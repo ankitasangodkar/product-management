@@ -106,6 +106,16 @@ input{
   padding: 12px;
   font-size: 15px;
 }
+select{
+  font-size: 14px;
+  padding: 8px;
+}
+.reject{
+  background: #f16b6b;
+}
+.accept{
+  background: #56f756;
+}
 
 @keyframes App-logo-spin {
   from {

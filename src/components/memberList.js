@@ -17,6 +17,8 @@ class MemeberList extends React.Component {
                             <th> Dp Number </th>
                             <th> Username </th>
                             <th> Phone Number </th>
+                            <th> Status V/NV </th>
+                            <th> Status A/R </th>
                         </tr>
                     </thead>
                     <tbody>

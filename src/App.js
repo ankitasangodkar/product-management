@@ -14,6 +14,8 @@ class App extends React.Component {
       username: '',
       phoneNumber: '',
       search: '',
+      status: '',
+      filtered: '',
       count: 1,
       items: []
     }
@@ -58,6 +60,13 @@ class App extends React.Component {
     this.setState({ search: searchValue });
   }
 
+  filterHandler = (event) => {
+    let statusValue = event.target.value;
+    console.log(statusValue);
+
+    this.setState({ status: statusValue });
+  }
+
   render() {
     let employees = this.props.data,
     searchString = this.state.search.trim().toLowerCase();
@@ -71,7 +80,9 @@ class App extends React.Component {
           <h2> Memebers List </h2>
           <SearchBar update={(e) => this.handleChange(e)} />
         </header>
-        <MemberList items={this.state.items } filterNames={filterNames} />
+        <MemberList items={this.state.items } 
+        filterNames={filterNames} statusUpdate={(e) => this.filterHandler(e)}
+         />
         <Form handleFormSubmit={this.handleFormSubmit}
               handleInputChange={this.handleInputChange}
               newDpNumber={this.state.dpNumber}

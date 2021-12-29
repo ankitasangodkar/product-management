@@ -9,7 +9,7 @@ class Form extends React.Component {
                     <label htmlFor="username">Username:
                         <input id="username" value={this.props.newUsername} 
                             type="text" name="username"
-                            onChange={this.props.handleInputChange} required />
+                            onChange={this.props.handleInputUsername} required />
                     </label>
                     <label htmlFor="emailId">Email Id:
                         <input id="emailId" value={this.props.newEmailId} 

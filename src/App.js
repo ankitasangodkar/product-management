@@ -4,6 +4,8 @@ import MemberList from "./components/memberList";
 import Form from "./components/Form";
 import SearchBar from "./components/SearchBar";
 
+
+//Number Validation
 function formatPhoneNumber(value) {
   if (!value) return value;
   const phoneNumber = value.replace(/[^\d]/g, "");
@@ -18,6 +20,12 @@ function formatPhoneNumber(value) {
     3,
     6
   )}-${phoneNumber.slice(6, 10)}`;
+}
+
+//Username Validation
+function ValidateUsername(value) {
+  if (!value) return value;
+  const username = value.replace(/^[a-zA-Z0-9._]*$/g, "");
 }
 
 
@@ -75,9 +83,18 @@ class App extends React.Component {
     })
   };
 
+  //PhoneNumber
   handleInput = (e) => {
     const formattedPhoneNumber = formatPhoneNumber(e.target.value);
     this.setState({phoneNumber:  formattedPhoneNumber});
+  };
+
+  handleInputUsername = (e) => {
+    const value = e.target.value;
+    const regex = /^[0-9a-zA-Z(._)]+$/; //this will admit letters, numbers and dashes
+    if (value.match(regex) || value === "") {
+      this.setState({ username: value });
+    }
   };
 
   handleChange(event) {
@@ -116,6 +133,7 @@ class App extends React.Component {
             statusUpdate={(e) => this.filterHandler(e)}
          />
         <Form handleFormSubmit={this.handleFormSubmit}
+              handleInputUsername={this.handleInputUsername}
               handleInputChange={this.handleInputChange}
               handleInput={this.handleInput}
               newDpNumber={this.state.dpNumber}

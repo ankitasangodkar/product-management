@@ -19,7 +19,7 @@ class Form extends React.Component {
                     <label htmlFor="phoneNumber">Phone Number:
                         <input id="phoneNumber" value={this.props.newPhoneNumber} 
                         type="phone" name="phoneNumber"
-                        onChange={this.props.handleInputChange} required maxLength={10} pattern="[789][0-9]{9}" />
+                        onChange={this.props.handleInput} required />
                     </label>
                     <button className="form-submit" type="submit" value="Submit">Add Item</button>
                 </form>

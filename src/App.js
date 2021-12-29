@@ -4,6 +4,22 @@ import MemberList from "./components/memberList";
 import Form from "./components/Form";
 import SearchBar from "./components/SearchBar";
 
+function formatPhoneNumber(value) {
+  if (!value) return value;
+  const phoneNumber = value.replace(/[^\d]/g, "");
+  const phoneNumberLength = phoneNumber.length;
+
+  if (phoneNumberLength < 4) return phoneNumber;
+  // the formatted number
+  if (phoneNumberLength < 7) {
+    return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
+  }
+  return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(
+    3,
+    6
+  )}-${phoneNumber.slice(6, 10)}`;
+}
+
 
 class App extends React.Component {
 
@@ -59,19 +75,20 @@ class App extends React.Component {
     })
   };
 
+  handleInput = (e) => {
+    const formattedPhoneNumber = formatPhoneNumber(e.target.value);
+    this.setState({phoneNumber:  formattedPhoneNumber});
+  };
+
   handleChange(event) {
     // Get event value
     let searchValue = event.target.value;
-    console.log(searchValue);
-
     // Set the state to trigger a re-rendering
     this.setState({ search: searchValue });
   }
 
   filterHandler = (event) => {
     let statusValue = event.target.value;
-    console.log(statusValue);
-
     this.setState({ status: statusValue });
   }
 
@@ -100,6 +117,7 @@ class App extends React.Component {
          />
         <Form handleFormSubmit={this.handleFormSubmit}
               handleInputChange={this.handleInputChange}
+              handleInput={this.handleInput}
               newDpNumber={this.state.dpNumber}
               newUsername={this.state.username}
               newPhoneNumber={this.state.phoneNumber}

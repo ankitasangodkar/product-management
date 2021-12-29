@@ -93,6 +93,14 @@ input{
   margin: 0 5px;
   box-shadow: 1px 1px 1px 1px #eee;
 }
+input[type="checkbox"]{
+  box-shadow: none;
+  width: 20px;
+}
+.labelName{
+  font-size: 14px;
+  margin: 6px 0;
+}
 .search{
   width: 300px;
   height: 25px;

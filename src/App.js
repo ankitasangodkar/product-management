@@ -4,6 +4,7 @@ import MemberList from "./components/memberList";
 import Form from "./components/Form";
 import SearchBar from "./components/SearchBar";
 
+
 class App extends React.Component {
 
   constructor(props){
@@ -17,6 +18,7 @@ class App extends React.Component {
       status: '',
       filtered: '',
       count: 1,
+      verify: '',
       items: []
     }
   };
@@ -29,6 +31,7 @@ class App extends React.Component {
       dpNumber: this.state.dpNumber,
       username: this.state.username,
       phoneNumber: this.state.phoneNumber,
+      verify: this.state.verify,
       count: this.state.count
     });
 
@@ -37,6 +40,7 @@ class App extends React.Component {
       dpNumber: '',
       username: '',
       phoneNumber: '',
+      verify: '',
       count: this.state.count + 1
     });
   };
@@ -80,14 +84,17 @@ class App extends React.Component {
           <h2> Memebers List </h2>
           <SearchBar update={(e) => this.handleChange(e)} />
         </header>
-        <MemberList items={this.state.items } 
-        filterNames={filterNames} statusUpdate={(e) => this.filterHandler(e)}
+        <MemberList
+            items={this.state.items } 
+            filterNames={filterNames} 
+            statusUpdate={(e) => this.filterHandler(e)}
          />
         <Form handleFormSubmit={this.handleFormSubmit}
               handleInputChange={this.handleInputChange}
               newDpNumber={this.state.dpNumber}
               newUsername={this.state.username}
               newPhoneNumber={this.state.phoneNumber}
+              newVerify={this.state.verify}
         />
       </div>
     );

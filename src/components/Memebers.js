@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
 
-const Members = ({ dpNumber, username, phoneNumber , verify }) => {
+const Members = ({ dpNumber, username, phoneNumber, emailId , verify }) => {
 
     const [ value, setValue ] = useState("select");
 
@@ -37,6 +37,9 @@ const Members = ({ dpNumber, username, phoneNumber , verify }) => {
             </td>
             <td>
                 <h4>{phoneNumber}</h4>
+            </td>
+            <td>
+                <h4>{emailId}</h4>
             </td>
             <td>
                 <h4>{verify}</h4>

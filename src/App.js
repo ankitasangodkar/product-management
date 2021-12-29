@@ -14,6 +14,7 @@ class App extends React.Component {
       dpNumber: '',
       username: '',
       phoneNumber: '',
+      emailId: '',
       search: '',
       status: '',
       filtered: '',
@@ -25,12 +26,14 @@ class App extends React.Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
+
     let items = [...this.state.items];
 
     items.push({
       dpNumber: this.state.dpNumber,
       username: this.state.username,
       phoneNumber: this.state.phoneNumber,
+      emailId: this.state.emailId,
       verify: this.state.verify,
       count: this.state.count
     });
@@ -40,6 +43,7 @@ class App extends React.Component {
       dpNumber: '',
       username: '',
       phoneNumber: '',
+      emailId: '',
       verify: '',
       count: this.state.count + 1
     });
@@ -75,13 +79,18 @@ class App extends React.Component {
     let employees = this.props.data,
     searchString = this.state.search.trim().toLowerCase();
 
-    const filterNames = ({ username }) => {
-      return username.toLowerCase().indexOf(searchString.toLowerCase()) !== -1;
+    const filterNames = ({ username, phoneNumber, emailId }) => {
+      return (
+        username.toLowerCase().indexOf(searchString.toLowerCase()) !== -1 ||
+        phoneNumber.toLowerCase().indexOf(searchString.toLowerCase()) !== -1 ||
+        emailId.toLowerCase().indexOf(searchString.toLowerCase()) !== -1
+      )
     };
+
     return (
       <div className="App">
         <header>
-          <h2> Memebers List </h2>
+          <h2> Members List </h2>
           <SearchBar update={(e) => this.handleChange(e)} />
         </header>
         <MemberList
@@ -94,6 +103,7 @@ class App extends React.Component {
               newDpNumber={this.state.dpNumber}
               newUsername={this.state.username}
               newPhoneNumber={this.state.phoneNumber}
+              newEmailId={this.state.emailId}
               newVerify={this.state.verify}
         />
       </div>

@@ -34,6 +34,7 @@ class MemeberList extends React.Component {
                             <th> Dp Number </th>
                             <th> Username </th>
                             <th> Phone Number </th>
+                            <th> Email Id </th>
                             <th> Status V/NV 
                             <label className="labelName"><input id="verify" type="checkbox" onChange={this.inputCheck} />
                                Verified</label>
@@ -46,7 +47,8 @@ class MemeberList extends React.Component {
                     <tbody>
                         {memberData.filter(filterNames).map((data, key) => {
                             const filterPass = this.state.verified;
-
+                            const filterPass1 = !this.state.verified;
+                            
                             //const temp = ((!filterPass) || (filterPass && filterPass == data.verified));
                             //console.log((filterPass) ||(!filterPass && !filterPass == data.verified));
 
@@ -57,6 +59,7 @@ class MemeberList extends React.Component {
                                         dpNumber = {data.dpNumber}
                                         username = {data.username}
                                         phoneNumber = {data.phoneNumber}
+                                        emailId = {data.emailId}
                                         verify = {data.verify}
                                     />
                                 );
@@ -69,6 +72,7 @@ class MemeberList extends React.Component {
                                     dpNumber = {1010 + data.count}
                                     username = {data.username}
                                     phoneNumber = {data.phoneNumber}
+                                    emailId = {data.emailId}
                                     verify = "--"
                                 />
                             );

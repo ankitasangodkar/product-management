@@ -9,12 +9,17 @@ class Form extends React.Component {
                     <label htmlFor="username">Username:
                         <input id="username" value={this.props.newUsername} 
                             type="text" name="username"
-                            onChange={this.props.handleInputChange} />
+                            onChange={this.props.handleInputChange} required />
+                    </label>
+                    <label htmlFor="emailId">Email Id:
+                        <input id="emailId" value={this.props.newEmailId} 
+                        type="text" name="emailId"
+                        onChange={this.props.handleInputChange} required />
                     </label>
                     <label htmlFor="phoneNumber">Phone Number:
                         <input id="phoneNumber" value={this.props.newPhoneNumber} 
-                        type="text" name="phoneNumber"
-                        onChange={this.props.handleInputChange} />
+                        type="phone" name="phoneNumber"
+                        onChange={this.props.handleInputChange} required maxLength={10} pattern="[789][0-9]{9}" />
                     </label>
                     <button className="form-submit" type="submit" value="Submit">Add Item</button>
                 </form>

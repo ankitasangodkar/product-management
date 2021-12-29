@@ -6,6 +6,7 @@ const membersData = [
         emailId: "joe@gmail.com",
         verify: "verified",
         verified: true,
+        nonverified: false,
     },
     {
         dpNumber: "1001",
@@ -14,6 +15,7 @@ const membersData = [
         emailId: "jason@gmail.com",
         verify: "non-verified",
         verified: false,
+        nonverified: true,
     },
     {
         dpNumber: "1002",
@@ -22,6 +24,7 @@ const membersData = [
         emailId: "steve@gmail.com",
         verify: "non-verified",
         verified: false,
+        nonverified: true,
     },
     {
         dpNumber: "1003",
@@ -30,6 +33,7 @@ const membersData = [
         emailId: "mark@gmail.com",
         verify: "verified",
         verified: true,
+        nonverified: false,
     },
     {
         dpNumber: "1004",
@@ -38,6 +42,7 @@ const membersData = [
         emailId: "llyod@gmail.com",
         verify: "non-verified",
         verified: false,
+        nonverified: true,
     },
     {
         dpNumber: "1005",
@@ -46,6 +51,7 @@ const membersData = [
         emailId: "philip@gmail.com",
         verify: "verified",
         verified: true,
+        nonverified: false,
     },
     {
         dpNumber: "1006",
@@ -54,6 +60,7 @@ const membersData = [
         emailId: "carin@gmail.com",
         verify: "verified",
         verified: true,
+        nonverified: false,
     },
     {
         dpNumber: "1007",
@@ -62,6 +69,7 @@ const membersData = [
         emailId: "fransis@gmail.com",
         verify: "verified",
         verified: true,
+        nonverified: false,
     },
     {
         dpNumber: "1008",
@@ -70,6 +78,7 @@ const membersData = [
         emailId: "san@gmail.com",
         verify: "verified",
         verified: true,
+        nonverified: false,
     },
     {
         dpNumber: "1009",
@@ -78,6 +87,7 @@ const membersData = [
         emailId: "john@gmail.com",
         verify: "verified",
         verified: true,
+        nonverified: false,
     },
     {
         dpNumber: "1010",
@@ -86,6 +96,7 @@ const membersData = [
         emailId: "henry@gmail.com",
         verify: "non-verified",
         verified: false,
+        nonverified: true,
     },
   ];
 

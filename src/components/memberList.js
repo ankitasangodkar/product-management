@@ -11,6 +11,7 @@ class MemeberList extends React.Component {
         this.inputCheck1=this.inputCheck1.bind(this);
         this.state = {
             verified: false,
+            nonverified: false,
         }
     };
 
@@ -18,7 +19,7 @@ class MemeberList extends React.Component {
         this.setState({ verified: !this.state.verified });
     }
     inputCheck1 = () => {
-        this.setState({ verified: this.state.verified });
+        this.setState({ nonverified: !this.state.nonverified });
     }
 
     render() {
@@ -47,12 +48,12 @@ class MemeberList extends React.Component {
                     <tbody>
                         {memberData.filter(filterNames).map((data, key) => {
                             const filterPass = this.state.verified;
-                            const filterPass1 = !this.state.verified;
+                            const filterPass1 = this.state.nonverified;
                             
                             //const temp = ((!filterPass) || (filterPass && filterPass == data.verified));
                             //console.log((filterPass) ||(!filterPass && !filterPass == data.verified));
 
-                            if((!filterPass) || (filterPass && filterPass == data.verified)) {
+                            if(((!filterPass) || (filterPass && filterPass == data.verified)) && ((!filterPass1) || (filterPass1 && filterPass1 == data.nonverified))) {
                                 return (
                                     <Members 
                                         key={key}
@@ -64,6 +65,7 @@ class MemeberList extends React.Component {
                                     />
                                 );
                             }
+
                         })}
                         {items.filter(filterNames).map((data, key) => {
                             return (

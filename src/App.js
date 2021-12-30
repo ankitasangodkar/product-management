@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import './App.css';
 import MemberList from "./components/memberList";
 import Form from "./components/Form";
@@ -28,8 +28,20 @@ function ValidateUsername(value) {
   const username = value.replace(/^[a-zA-Z0-9._]*$/g, "");
 }
 
+// getting the values of local storage
+const getDatafromLS=()=>{
+  const data = localStorage.getItem('items');
+  if(data){
+    return JSON.parse(data);
+  }
+  else{
+    return []
+  }
+}
 
 class App extends React.Component {
+
+  userData;
 
   constructor(props){
     super(props);
@@ -52,6 +64,7 @@ class App extends React.Component {
     e.preventDefault();
 
     let items = [...this.state.items];
+  
 
     items.push({
       dpNumber: this.state.dpNumber,
@@ -61,6 +74,9 @@ class App extends React.Component {
       verify: this.state.verify,
       count: this.state.count
     });
+
+    localStorage.setItem("items", JSON.stringify(items));
+
 
     this.setState({
       items,
@@ -108,6 +124,22 @@ class App extends React.Component {
     let statusValue = event.target.value;
     this.setState({ status: statusValue });
   }
+
+  componentWillMount() {
+    // load items array from localStorage, set in state
+    let itemsList = localStorage.getItem('items')
+    if (itemsList) {
+      this.setState({
+       items: JSON.parse(itemsList)
+      })
+    }
+  }
+  componentDidUpdate() {
+    // on each update, sync our state with localStorage
+    localStorage.setItem('items', JSON.stringify(this.state.items))
+  }
+
+
 
   render() {
     let employees = this.props.data,

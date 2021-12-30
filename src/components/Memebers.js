@@ -3,7 +3,7 @@ import "../App.css";
 
 const Members = ({ dpNumber, username, phoneNumber, emailId , verify }) => {
 
-    const [ value, setValue ] = useState("select");
+    const [ value, setValue ] = useState("[]");
 
     useEffect(() => {
         getLocalTodos();

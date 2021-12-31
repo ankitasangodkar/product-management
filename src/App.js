@@ -107,7 +107,7 @@ class App extends React.Component {
 
   handleInputUsername = (e) => {
     const value = e.target.value;
-    const regex = /^[0-9a-zA-Z(._)]+$/; //this will admit letters, numbers and dashes
+    const regex = /^[0-9a-zA-Z._]+$/; //this will admit letters, numbers and dashes
     if (value.match(regex) || value === "") {
       this.setState({ username: value });
     }

@@ -102,8 +102,8 @@ input[type="checkbox"]{
   margin: 6px 0;
 }
 .search{
-  width: 300px;
-  height: 25px;
+  width: 20em;
+  height: 50px;
   background: #efefef;
   box-shadow: none;
   border: 1px solid #a2a2a2;
@@ -124,7 +124,25 @@ select{
 .accept{
   background: #56f756;
 }
-
+input[type="search" i]::-webkit-search-cancel-button {
+    font-size: 16px;
+    opacity: 1;
+    cursor: pointer;
+}
+.radioGroup{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: flex-start;
+}
+.radioGroup input{
+  width: auto;
+  box-shadow: none;
+}
+textarea{
+  font-size: 12px;
+  margin: 10px 10px 5px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

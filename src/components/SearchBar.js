@@ -6,7 +6,7 @@ class SearchBar extends React.Component{
     }
     render() {
         return (
-            <input type="text" placeholder="Filter by Search" className="search"
+            <input type="search" placeholder="Filter by Search" className="search"
                 onChange = {(e) => this.props.update(e)}
             />
         );

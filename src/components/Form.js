@@ -19,8 +19,18 @@ class Form extends React.Component {
                     <label htmlFor="phoneNumber">Phone Number:
                         <input id="phoneNumber" value={this.props.newPhoneNumber} 
                         type="phone" name="phoneNumber"
-                        onChange={this.props.handleInput} required />
+                        onChange={this.props.handleInput} required  maxLength="10" />
                     </label>
+                    <div className="radioGroup">
+                    <label><input type="radio" name="status"  value="verified" 
+                        checked={this.props.newRadioStatus === 'verified'} 
+                        onChange={this.props.onStatusChanged} required />
+                        Verified</label>
+                    <label><input type="radio" name="status" value="non-verified"  
+                        checked={this.props.newRadioStatus === 'non-verified'} 
+                        onChange={this.props.onStatusChanged} required />
+                        Non Verified</label>
+                    </div>
                     <button className="form-submit" type="submit" value="Submit">Add Item</button>
                 </form>
             </div>

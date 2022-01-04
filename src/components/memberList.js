@@ -12,14 +12,18 @@ class MemeberList extends React.Component {
         this.state = {
             verified: false,
             nonverified: false,
+            v:"verified",
+            nv:"non-verified",
         }
     };
 
     inputCheck = () => {
         this.setState({ verified: !this.state.verified });
+        this.setState({ v: this.state.v });
     }
     inputCheck1 = () => {
         this.setState({ nonverified: !this.state.nonverified });
+        this.setState({ nv: this.state.nv });
     }
 
     render() {
@@ -43,15 +47,13 @@ class MemeberList extends React.Component {
                                Non-Verified</label>
                             </th>
                             <th> Status A/R </th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        {memberData.filter(filterNames).map((data, key) => {
+                        {memberData.filter(filterNames)?.map((data, key) => {
                             const filterPass = this.state.verified;
                             const filterPass1 = this.state.nonverified;
-                            
-                            //const temp = ((!filterPass) || (filterPass && filterPass == data.verified));
-                            //console.log((filterPass) ||(!filterPass && !filterPass == data.verified));
 
                             if(((!filterPass) || (filterPass && filterPass == data.verified)) && ((!filterPass1) || (filterPass1 && filterPass1 == data.nonverified))) {
                                 return (
@@ -68,16 +70,21 @@ class MemeberList extends React.Component {
 
                         })}
                         {items.filter(filterNames).map((data, key) => {
-                            return (
-                                <Members 
-                                    key={key}
-                                    dpNumber = {1010 + data.count}
-                                    username = {data.username}
-                                    phoneNumber = {data.phoneNumber}
-                                    emailId = {data.emailId}
-                                    verify = "--"
-                                />
-                            );
+                            const fp = this.state.v;
+                            const fp1 = this.state.nv;
+                            if((fp === "verified")) {
+                                return (
+                                    <Members 
+                                        key={key+11}
+                                        dpNumber = {1010 + data.count}
+                                        username = {data.username}
+                                        phoneNumber = {`+91 ${data.phoneNumber}`}
+                                        emailId = {data.emailId}
+                                        verify = {data.radioStatus}
+                                    />
+                                );
+                            }
+                            
                         })}
                     </tbody>
                 </table>

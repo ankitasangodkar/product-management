@@ -1,33 +1,34 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
+import { Link } from 'react-router-dom';
+
 
 const Members = ({ dpNumber, username, phoneNumber, emailId , verify }) => {
+    const localNotes = localStorage.getItem("textareaValue");
+    const statusValue = localStorage.getItem("value");
 
-    const [ value, setValue ] = useState("[]");
-
-    useEffect(() => {
-        getLocalTodos();
-      },[]);
-   
-     useEffect(() => {
-       saveLocalTodos();
-     }, [ value ]);
-
-      //Save to local
-    const saveLocalTodos = () => {
-        localStorage.setItem('value', JSON.stringify(value))
-    };
-
-    const getLocalTodos = () => {
-        let todoLocal = JSON.parse(localStorage.getItem('value'));
-        setValue(todoLocal);
-    };
+    const [ value, setValue ] = useState(statusValue);
+    const [ textareaValue, setTextareaValue] = useState(localNotes);
 
     const statusHandler = (e) => {
+        localStorage.setItem('value', e.target.value)
         setValue(e.target.value)
     }
 
+    const textareaHandler = (e) => {
+        localStorage.setItem('textareaValue', e.target.value)
+        setTextareaValue(e.target.value)
+    }
+
+    const options = [
+        { key: 'key-1', text: 'select' },
+        { key: 'key-2', text: 'accept' },
+        { key: 'key-3', text: 'reject' }
+    ]
+
+
     return (
+        
         <tr>
             <td>
                 <h4>{dpNumber}</h4>
@@ -44,13 +45,17 @@ const Members = ({ dpNumber, username, phoneNumber, emailId , verify }) => {
             <td>
                 <h4>{verify}</h4>
             </td>
-            <td className={`${value}`}>
-                <select onChange={statusHandler} name="todos">
-                    <option value="select">Select</option>
-                    <option value="accept">Accept</option>
-                    <option value="reject">Reject</option>
+            <td>
+                <select value={value} onChange={statusHandler} name="todos">
+                {options.map(o =>
+                    <option key={o.key} value={o.key}>{o.text}</option>)
+                }
                 </select>
+                <p>op:{value}</p>
+                {value === "key-3" && <textarea placeholder="specify reason" value={textareaValue}
+                 onChange={textareaHandler} />}
             </td>
+            <td><Link to={{pathname: `./listView/${username}`}}>View</Link></td>
         </tr>
     );
 }
